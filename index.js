@@ -11,16 +11,19 @@ app.get('/', function(req, res) {
 });
 
 app.get('/:note_name', function(req, res) {
+	if(req.params.note_name == "favicon.ico")return;
     console.log('GET /note_name');
 	notes.get(req.params.note_name, req, res);
 });
 
 app.post('/:note_name', function(req, res) {
+	if(req.params.note_name == "favicon.ico")return;
 	console.log('POST /note_name');
 	notes.insert(req.params.note_name, req, res);
 });
 
 app.put('/:note_name', function(req, res) {
+	if(req.params.note_name == "favicon.ico")return;
 	console.log('PUT /note_name');
 	notes.upsert(req.params.note_name, req, res);
 });
